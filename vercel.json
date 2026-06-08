@@ -1,0 +1,16 @@
+{
+  "installCommand": "npm install && npm install --prefix envy-skin-clone",
+  "buildCommand": "npm run build",
+  "outputDirectory": "envy-skin-clone/dist",
+  "functions": {
+    "api/health.ts": {
+      "maxDuration": 10
+    },
+    "api/pix/charge.ts": {
+      "maxDuration": 60
+    },
+    "api/order/[orderId].ts": {
+      "maxDuration": 30
+    }
+  }
+}
