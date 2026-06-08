@@ -6,6 +6,9 @@
     "api/health.ts": {
       "maxDuration": 10
     },
+    "api/cep/[cep].ts": {
+      "maxDuration": 10
+    },
     "api/pix/charge.ts": {
       "maxDuration": 60
     },

@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import {lookupCep} from '../../api/lib/cepLookup.js';
 
 const app = express();
 
@@ -210,6 +211,29 @@ async function fruitfyFetch(path: string, init: RequestInit) {
 
 app.get('/health', (_request, response) => {
   response.json({ok: true});
+});
+
+app.get('/api/cep/:cep', async (request, response) => {
+  try {
+    const result = await lookupCep(request.params.cep);
+
+    if (result.ok) {
+      response.status(200).json({ok: true, ...result.data});
+      return;
+    }
+
+    if (result.notFound) {
+      response.status(404).json({ok: false, notFound: true, message: 'CEP não encontrado.'});
+      return;
+    }
+
+    response.status(502).json({ok: false, message: 'Não foi possível consultar o CEP.'});
+  } catch (error) {
+    response.status(500).json({
+      ok: false,
+      message: error instanceof Error ? error.message : 'Erro interno ao consultar CEP.',
+    });
+  }
 });
 
 app.post('/api/pix/charge', async (request, response) => {
