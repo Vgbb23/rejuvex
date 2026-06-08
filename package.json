@@ -1,9 +1,9 @@
 {
-  "name": "zencialnovo",
+  "name": "rejuvex",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run build --prefix envy-skin-clone"
+    "build": "npm run build --prefix rejuvex"
   },
   "dependencies": {
     "@vercel/node": "^3.2.29",

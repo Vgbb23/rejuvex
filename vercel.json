@@ -1,7 +1,7 @@
 {
-  "installCommand": "npm install && npm install --prefix envy-skin-clone",
+  "installCommand": "npm install && npm install --prefix rejuvex",
   "buildCommand": "npm run build",
-  "outputDirectory": "envy-skin-clone/dist",
+  "outputDirectory": "rejuvex/dist",
   "functions": {
     "api/health.ts": {
       "maxDuration": 10

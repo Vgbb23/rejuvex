@@ -6,7 +6,7 @@ import { join } from "path";
 /** Carrega .env da pasta do app (útil em dev local; na Vercel usam-se as env do painel). */
 export function loadProjectEnv(): void {
   try {
-    const envDir = join(process.cwd(), "envy-skin-clone");
+    const envDir = join(process.cwd(), "rejuvex");
     if (existsSync(join(envDir, ".env"))) config({ path: join(envDir, ".env") });
     if (existsSync(join(envDir, ".env.local"))) config({ path: join(envDir, ".env.local"), override: true });
   } catch {
